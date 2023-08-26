@@ -5,13 +5,14 @@ import UploadButton from "./UploadButton";
 import cloudinary from "cloudinary";
 
 const Gallery = async () => {
-  const res = await cloudinary.v2.search
+  const result = await cloudinary.v2.search
     .expression("resource_type:image")
-    .sort_by("public_id", "desc")
+    .sort_by("create_at", "desc")
     .max_results(30)
-    .execute()
-    .then((result) => console.log(result));
+    .execute();
+
   const [imageId, setImageId] = useState("");
+
   return (
     <div className="grid grid-cols-[1fr,auto] grid-rows-[auto,1fr] gap-4">
       <div>
