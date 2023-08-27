@@ -6,8 +6,8 @@ const ImageItem = ({ imageId }: { imageId: string }) => {
   return (
     <div className="col-span-full">
       <CldImage
-        width="200"
-        height="300"
+        width={400}
+        height={300}
         src={imageId}
         sizes="100vw"
         alt="Description of my image"

@@ -2,7 +2,7 @@
 
 import { CldUploadButton } from "next-cloudinary";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 type uploadResult = {
   info: {
@@ -12,7 +12,8 @@ type uploadResult = {
 };
 
 const UploadButton = () => {
-  const [imageId, setImageId] = useState("");
+  const router = useRouter();
+
   return (
     <Button asChild>
       <div className="flex gap-2">
@@ -31,9 +32,8 @@ const UploadButton = () => {
           />
         </svg>
         <CldUploadButton
-          onUpload={(result) => {
-            const imgResult = result as uploadResult;
-            setImageId(imgResult.info.public_id);
+          onUpload={() => {
+            router.refresh();
           }}
           uploadPreset="glbc5qws"
         />

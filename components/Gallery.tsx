@@ -17,7 +17,7 @@ const Gallery = async () => {
 
   return (
     <div>
-      <div className="grid grid-cols-[1fr,auto] grid-rows-[auto,1fr] gap-4">
+      <div className="grid grid-cols-[1fr,auto] grid-rows-[auto,1fr] gap-8">
         <div>
           <h1 className="text-lg font-bold">Gallery</h1>
         </div>
@@ -25,7 +25,7 @@ const Gallery = async () => {
           <UploadButton />
         </div>
       </div>
-      <div className="columns-4 space-y-4 gap-3">
+      <div className="columns-4 space-y-4 gap-4 w-full m-auto">
         {imageData.map((item: imageData) => (
           <ImageItem key={item.public_id} imageId={item.public_id} />
         ))}
